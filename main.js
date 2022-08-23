@@ -1,4 +1,4 @@
-window.onload = function () {
+$(function SecFix() {
   let scrollBody = document.querySelector('.fix_motion');
   let titText = scrollBody.querySelector('.intro_txt');
   let maskLeft = scrollBody.querySelector('.left_mask');
@@ -79,7 +79,7 @@ window.onload = function () {
   if (Modernizr.csspositionsticky) {
     init();
   }
-};
+});
 
 // sec01
 let isVisible = false;
@@ -154,14 +154,6 @@ function checkInSection() {
     sectionActive(2);
   } else if (winScrollTop >= offsetTop[3] && offsetBottom[3] > winScrollTop) {
     sectionActive(3);
-  } else if (winScrollTop >= offsetTop[4] && offsetBottom[4] > winScrollTop) {
-    sectionActive(4);
-  } else if (winScrollTop >= offsetTop[5] && offsetBottom[5] > winScrollTop) {
-    sectionActive(5);
-  } else if (winScrollTop >= offsetTop[6] && offsetBottom[6] > winScrollTop) {
-    sectionActive(6);
-  } else if (winScrollTop >= offsetTop[7] && offsetBottom[7] > winScrollTop) {
-    sectionActive(7);
   }
 }
 
@@ -169,7 +161,13 @@ function sectionActive(index) {
   listActive(index);
   changeText(index);
   changeColor(index);
+  changeImage(index);
   parallax();
+}
+
+function changeImage(index) {
+  $('.cube_box .cube_face').removeClass('s0 s1 s2 s3');
+  $('.cube_box .cube_face').addClass('s' + index);
 }
 
 function listActive(index) {
@@ -187,15 +185,29 @@ function changeText(index) {
 }
 
 function changeColor(index) {
-  let targetText = $('.sec03 .fix_tit');
+  let targetText = $('.sec03 h2 a');
   let cubeBox = $('.sec03 .cube_box .cube_face');
 
-  if (index === 1 || index === 2) {
+  if (index === 0 || index === 2) {
     targetText.addClass('black');
-    cubeBox.addClass('black');
   } else {
     targetText.removeClass('black');
-    cubeBox.removeClass('black');
+  }
+
+  if (index === 0) {
+    targetText.attr(
+      'href',
+      'https://github.com/KimLineless/Gentlemonster_renewal/'
+    );
+  } else if (index === 1) {
+    targetText.attr('href', 'https://github.com/KimLineless/Jenesis_renewal/');
+  } else if (index === 2) {
+    targetText.attr('href', 'https://github.com/KimLineless/Garts_renewal/');
+  } else if (index === 3) {
+    targetText.attr(
+      'href',
+      'https://github.com/KimLineless/baeksansu_renewal/'
+    );
   }
 }
 
@@ -259,67 +271,86 @@ $(function () {
     $sec2.toggleClass('down', scrolled);
   });
 });
+$(function () {
+  let $sec3 = $('.sec_svg');
+  let $page1 = $('.sec_svg');
+  let $window = $(window);
+  let pageOffsetTop1 = $page1.offset().top - 350;
 
-// //svg
+  $window.resize(function () {
+    pageOffsetTop1 = $page1.offset().top - 350;
+  });
 
-// window.onload = function () {
-//   let svgPath = document.querySelector('#ggang_svg path');
-//   let isPlay = false;
+  $window.on('scroll', function () {
+    let scrolled1 = $window.scrollTop() >= pageOffsetTop1;
+    $sec3.toggleClass('down', scrolled1);
+  });
+});
 
-//   function svgSet() {
-//     svgPath.style.strokeDasharray =
-//       svgPath.getTotalLength() + ',' + svgPath.getTotalLength();
-//     svgPath.style.strokeDashoffset = svgPath.getTotalLength();
-//   }
+//svg
 
-//   function init() {
-//     svgSet();
-//     drawSvg();
-//   }
+$(function SecSvg() {
+  window.onload = function () {
+    let svgPath = document.querySelector('#svg path');
+    let isPlay = false;
 
-//   function drawSvg() {
-//     let winScrollTop = window.pageYOffset;
-//     let scrollHeight = document.body.offsetHeight;
-//     let scrollRealHeight = scrollHeight - window.innerHeight;
-//     let parallaxPercent = (winScrollTop / scrollRealHeight) * 100 * 1.5;
+    function svgSet() {
+      svgPath.style.strokeDasharray =
+        svgPath.getTotalLength() + ',' + svgPath.getTotalLength();
+      svgPath.style.strokeDashoffset = svgPath.getTotalLength();
+    }
 
-//     let parallaxStartValue = svgPath.getTotalLength();
-//     let parallaxMoveDistance = Math.max(
-//       parallaxStartValue - parallaxStartValue,
-//       Math.min(
-//         parallaxStartValue,
-//         parallaxStartValue - parallaxStartValue * (parallaxPercent / 100)
-//       )
-//     ); //패럴럭스 요소가 움직일 거리를 구합니다
+    function init() {
+      svgSet();
+      drawSvg();
+    }
 
-//     svgPath.style.strokeDashoffset = parallaxMoveDistance;
+    function drawSvg() {
+      let winScrollTop = $(window).scrollTop() - $('.sec_svg').offset().top;
+      let scrollHeight = $('.sec_svg').height();
+      let scrollRealHeight = scrollHeight - window.innerHeight;
+      let parallaxPercent = (winScrollTop / scrollRealHeight) * 100 * 1.5;
 
-//     if (parallaxPercent >= 100 && !isPlay) {
-//       isPlay = true;
-//       document.querySelector('.video_wrap').style.opacity = 1;
+      let parallaxStartValue = svgPath.getTotalLength();
+      let parallaxMoveDistance = Math.max(
+        parallaxStartValue - parallaxStartValue,
+        Math.min(
+          parallaxStartValue,
+          parallaxStartValue - parallaxStartValue * (parallaxPercent / 100)
+        )
+      );
 
-//       setTimeout(function () {
-//         document.querySelector('.video_wrap video').play();
-//         document.querySelector('.svg_wrap').style.opacity = 0;
-//       }, 500);
-//     } else if (parallaxPercent < 100 && isPlay) {
-//       isPlay = false;
-//       document.querySelector('.video_wrap').style.opacity = 0;
+      //패럴럭스 요소가 움직일 거리를 구합니다
 
-//       document.querySelector('.video_wrap video').pause();
-//       document.querySelector('.video_wrap video').currentTime = 0;
+      svgPath.style.strokeDashoffset = parallaxMoveDistance;
 
-//       document.querySelector('.svg_wrap').style.opacity = 1;
-//     }
-//   }
+      if (parallaxPercent >= 100 && !isPlay) {
+        isPlay = true;
+        document.querySelector('.video_wrap').style.opacity = 1;
 
-//   window.addEventListener(
-//     'scroll',
-//     function () {
-//       drawSvg();
-//     },
-//     false
-//   );
+        setTimeout(function () {
+          document.querySelector('.video_wrap video').play();
+          document.querySelector('.svg_wrap').style.opacity = 0;
+        }, 500);
+      } else if (parallaxPercent < 100 && isPlay) {
+        isPlay = false;
+        document.querySelector('.video_wrap').style.opacity = 0;
 
-//   init();
-// };
+        document.querySelector('.video_wrap video').pause();
+        document.querySelector('.video_wrap video').currentTime = 0;
+
+        document.querySelector('.svg_wrap').style.opacity = 1;
+      }
+    }
+
+    window.addEventListener(
+      'scroll',
+      function () {
+        drawSvg();
+      },
+      false
+    );
+
+    init();
+  };
+});

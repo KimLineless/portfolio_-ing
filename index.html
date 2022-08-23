@@ -16,30 +16,11 @@
 
 <body>
     <div class="wrap">
-        <!-- <canvas id="three-canvas"></canvas>
-        <div class="sections">
-            <section class="section a">
-                <h2>아무것도 몰랐던 새끼호랑이에서</h2>
-            </section>
-            <section class="section a">
-                <h2>누구보다 빠르게 성장하여</h2>
-            </section>
-            <section class="section a">
-                <h2>혼자 사냥을 나서는</h2>
-            </section>
-            <section class="section a">
-                <h2>맹수가 될 때까지</h2>
-            </section>
-            <section class="section a">
-                <h2>달려나가겠습니다.</h2>
-            </section>
-        </div> -->
-
         <section class="fix_motion" id="top">
             <!-- 스크롤할 거리를 설정하는 엘리먼트 -->
             <article class="sticky_cont">
                 <!-- 고정시킬 엘리먼트 sticky -->
-                <div class="cont_box ">
+                <div class="cont_box">
                     <ul class="intro_txt">
                         <h2>
                             More Nicely <br>
@@ -48,7 +29,51 @@
                     </ul>
                     <div class="left_mask"></div>
                     <div class="right_mask"></div>
-                    <canvas id="canvas" class="bg_img" width="600" height="600"></canvas>
+                    <div class="box bg_img">
+                        <div class="tail">
+                            <div class="tail-1"></div>
+                            <div class="tail-2">
+                                <div class="t-stripe-"></div>
+                                <div class="end"></div>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div class="b-stripe-1"></div>
+                            <div class="arm-1"></div>
+                            <div class="leg-1"></div>
+                        </div>
+                        <div class="tiger">
+                            <div class="head-copy">
+                                <div class="l-ear">
+                                    <div class="ear-center"></div>
+                                </div>
+                                <div class="r-ear">
+                                    <div class="ear-center"></div>
+                                </div>
+                            </div>
+                            <div class="head">
+                                <div class="l-stripe-1"></div>
+                                <div class="l-stripe-2"></div>
+                                <div class="l-eye">
+                                    <div class="shine"></div>
+                                </div>
+                                <div class="r-stripe-1"></div>
+                                <div class="r-stripe-2"></div>
+                                <div class="r-eye">
+                                    <div class="shine"></div>
+                                </div>
+                                <div class="x-stripe-1"></div>
+                                <div class="x-stripe-2"></div>
+                                <div class="y-stripe"></div>
+                                <div class="snout">
+                                    <div class="nose"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arm-2"></div>
+                        <div class="leg-2"></div>
+                        <div class="ball"></div>
+                    </div>
                     <div class="ending_txt">
                         <div class="tb_row">
                             <div class="tb_cell">
@@ -138,13 +163,13 @@
             </article>
         </section>
         <section class="skill_list">
-            <div class="skill_icon">
-                <div class="photo"><img src="./images/photo.png" alt="photo"></div>
-                <div class="ill"><img src="./images/ill.png" alt="ill"></div>
-                <div class="xd"><img src="./images/xd.png" alt="xd"></div>
-                <div class="html"><img src="./images/html.png" alt="html"></div>
-                <div class="css"><img src="./images/css.png" alt="css"></div>
-            </div>
+            <ul class="skill_icon">
+                <li class="photo"><img src="./images/photo.png" alt="photo"></li>
+                <li class="ill"><img src="./images/ill.png" alt="ill"></li>
+                <li class="xd"><img src="./images/xd.png" alt="xd"></li>
+                <li class="html"><img src="./images/html.png" alt="html"></li>
+                <li class="css"><img src="./images/css.png" alt="css"></li>
+            </ul>
             <div class="skill_txt1">
                 <p>웹표준, 웹 접근성을 고려한 시멘틱 마크업 작업이 가능합니다.</p>
                 <p>HTML과 CSS로 주어진 디자인 레이아웃에 따라 페이지를 디자인할 수 있습니다.</p>
@@ -155,13 +180,13 @@
                 <p>CSS와 JavaScript를 활용한 동적 모션을 구현할 수 있습니다.</p>
                 <p>WebGL 라이브러리 three.js를 이용한 3D 웹 구현을 할 수 있습니다.</p>
             </div>
-            <div class="skill_icon2">
-                <div class="js"><img src="./images/js.png" alt="js"></div>
-                <div class="jquery"><img src="./images/jquery.png" alt="jquery"></div>
-                <div class="react"><img src="./images/react.png" alt="react"></div>
-                <div class="node"><img src="./images/node.png" alt="node"></div>
-                <div class="three"><img src="./images/three.png" alt="three"></div>
-            </div>
+            <ul class="skill_icon2">
+                <li class="js"><img src="./images/js.png" alt="js"></li>
+                <li class="jquery"><img src="./images/jquery.png" alt="jquery"></li>
+                <li class="react"><img src="./images/react.png" alt="react"></li>
+                <li class="node"><img src="./images/node.png" alt="node"></li>
+                <li class="three"><img src="./images/three.png" alt="three"></li>
+            </ul>
         </section>
         <section class="scroll_box sec02">
             <div class="fix_box">
@@ -174,12 +199,12 @@
             <h2 class="fix_tit">
                 <!-- 타이틀 -->
                 <span>HELLO :D</span>
-                <strong></strong>
+                <a href="#"><strong style="font-size:8vw;"></strong></a>
             </h2>
-            <div id="a" class="section03 fixed" style="background-color: aqua;"></div>
-            <div id="b" class="section03" style="background-color: aquamarine;"></div>
-            <div id="c" class="section03" style="background-color: blueviolet;"></div>
-            <div id="d" class="section03 fixed" style="background-color: brown;"></div>
+            <div id="a" class="section03 fixed"></div>
+            <div id="b" class="section03"></div>
+            <div id="c" class="section03"> </div>
+            <div id="d" class="section03 fixed"> </div>
             <ul class="nav_list">
                 <!-- 네비게이션 -->
                 <li>
@@ -208,24 +233,38 @@
                 </li>
             </ul>
             <div class="cube_wrap">
-                <div class="cube_box">
-                    <div class="cube_face front"></div>
-                    <div class="cube_face back"></div>
-                    <div class="cube_face right"></div>
-                    <div class="cube_face left"></div>
-                    <div class="cube_face top"></div>
-                    <div class="cube_face bottom"></div>
-                </div>
+                <ul class="cube_box">
+                    <li class="cube_face front"></li>
+                    <li class="cube_face back"></li>
+                    <li class="cube_face right"></li>
+                    <li class="cube_face left"></li>
+                    <li class="cube_face top"></li>
+                    <li class="cube_face bottom"></li>
+                </ul>
             </div>
+        </section>
+        <section class="sec_svg">
+            <h2 class="fix_tit2">
+                <span>SVG :D</span>
+                <strong>Contact</strong>
+            </h2>
+            <div class="svg_wrap">
+                <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+                    <path class="cls-1"
+                        d="M733.5,420.5s56-4,69,10,94,53,95,57,14,0,14,0l12-16s11-25,22-28,48-35,48-35,23-14,52-9l11,6-50,16s-22,7-42,54c0,0-17,17-24,18,0,0,4,16-3,26,0,0,18,33,14,37s35-17,60,14c0,0,21,26-1,58,0,0-9,21-23,25v17s4,33,8,35c0,0,28,62,25,83l18,49-45,4,10-8s3-35-16-55c0,0-33-80-32-96,0,0-15-5-18-19,0,0-19-22-18-26,0,0-95-36-119-75,0,0-17,69-31,81,0,0-8,36-17,46,0,0-3,7-32,20l-35,17s-59,56-60,57-9,1-9,1,0,30-3,31l8,12s27,3,23,14c0,0-1,7-14,6h-36s-56-37-55-44,15-38,25-36l91-79s35-25,43-25l12-15,16-109s4-34-57-72-92-23-103-59c0,0,3-28,7-30l-5-90,1-15s-36-43-39-42-30-33,21-21c0,0,95,31,89,52,0,0,4,14-18,24l1,93-4,11Z" />
+                </svg>
+            </div>
+            <figure class="video_wrap">
+                <video src="../video/dance.mp4" muted loop></video>
+            </figure>
+        </section>
+        <section class="sec04">
+
         </section>
 
     </div>
 
 
-
-
-    <!-- <script defer="defer" src="875.min.js"></script>
-    <script src="main.min.js"></script> -->
     <script defer="defer" src="main.js"></script>
 </body>
 
