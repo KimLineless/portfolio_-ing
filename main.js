@@ -119,16 +119,47 @@ $(function () {
 
 // sec02
 
-let allText = document.querySelectorAll('.txt');
-window.addEventListener('scroll', function () {
-  let dis =
-    window.pageYOffset /
-    ((document.querySelector('.scroll_box').offsetHeight - window.innerHeight) /
-      1.8);
-  let gap = 1;
-  allText.forEach(function (arr, index) {
-    arr.style = '--progress:' + Math.max(0, dis - index * gap) + '';
+$(function () {
+  if (window.innerWidth > 1024) {
+    let allText = document.querySelectorAll('.txt');
+    window.addEventListener('scroll', function () {
+      let dis =
+        window.pageYOffset /
+        ((document.querySelector('.scroll_box').offsetHeight -
+          window.innerHeight) /
+          1.8);
+      let gap = 1;
+      allText.forEach(function (arr, index) {
+        arr.style = '--progress:' + Math.max(0, dis - index * gap) + '';
+      });
+    });
+  } else if (window.innerWidth < 1023) {
+    let allText = document.querySelectorAll('.txt');
+    window.addEventListener('scroll', function () {
+      let dis =
+        window.pageYOffset /
+        ((document.querySelector('.scroll_box').offsetHeight -
+          window.innerHeight) /
+          2.4);
+      let gap = 1;
+      allText.forEach(function (arr, index) {
+        arr.style = '--progress:' + Math.max(0, dis - index * gap) + '';
+      });
+    });
+  }
+
+  let bWidth = window.innerWidth;
+  window.addEventListener('resize', () => {
+    const nWidth = window.innerWidth;
+    if ((bWidth < 1024 && nWidth >= 1024) || (bWidth > 100 && nWidth <= 1000)) {
+      location.reload();
+    }
+    beforeWidth = nowWidth;
   });
+
+  function resize() {
+    $('#sec4').load(window.location.href + '#sec4');
+  }
 });
 
 // sec03
@@ -273,12 +304,12 @@ $(function () {
 });
 $(function () {
   let $sec3 = $('.sec_svg');
-  let $page1 = $('.sec_svg');
+  let $page1 = $('.sec04');
   let $window = $(window);
-  let pageOffsetTop1 = $page1.offset().top - 350;
+  let pageOffsetTop1 = $page1.offset().top;
 
   $window.resize(function () {
-    pageOffsetTop1 = $page1.offset().top - 350;
+    pageOffsetTop1 = $page1.offset().top;
   });
 
   $window.on('scroll', function () {
@@ -320,7 +351,7 @@ $(function SecSvg() {
         )
       );
 
-      //패럴럭스 요소가 움직일 거리를 구합니다
+      //패럴럭스 요소가 움직일 거리
 
       svgPath.style.strokeDashoffset = parallaxMoveDistance;
 
@@ -354,3 +385,5 @@ $(function SecSvg() {
     init();
   };
 });
+
+// sec4

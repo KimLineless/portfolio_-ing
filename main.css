@@ -1,3 +1,7 @@
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
 body {
   margin: 0;
 }
@@ -104,6 +108,9 @@ a {
   font-size: 80px;
   line-height: 1.5;
   color: #fff;
+}
+.fix_motion .sticky_cont .cont_box .intro_txt h2.mb {
+  display: none;
 }
 
 .fix_motion .sticky_cont .cont_box .intro_txt.active {
@@ -778,24 +785,6 @@ a {
   }
 }
 
-@media only screen and (max-width: 1024px) {
-  .ggang_box h2 {
-    font-size: 32px;
-  }
-
-  .fix_motion {
-    height: 3000px;
-  }
-
-  .fix_motion .sticky_cont .cont_box .intro_txt h2 {
-    font-size: 50px;
-  }
-
-  .fix_motion .sticky_cont .cont_box .ending_txt .tb_row .tb_cell p {
-    font-size: 50px;
-  }
-}
-
 /* sec_skill */
 
 .section_textmask {
@@ -1381,7 +1370,6 @@ a {
   top: 50%;
   z-index: 30;
   width: 100%;
-  height: 100%;
   transform: translate(-50%, -50%);
 }
 
@@ -1396,7 +1384,7 @@ a {
 .video_wrap {
   position: fixed;
   left: 50%;
-  top: 52%;
+  top: 50%;
   z-index: 10;
   width: 100%;
   opacity: 0;
@@ -1416,4 +1404,276 @@ a {
   width: 100%;
   height: 100vh;
   background-color: #111;
+  font-family: 'Roboto';
+  text-align: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8vw;
 }
+
+/* sec05 */
+
+.sec05 {
+  position: relative;
+  z-index: 300;
+  width: 100%;
+  height: 100vh;
+  background-color: #111;
+}
+
+/* 반응형 */
+
+@media only screen and (max-width: 1024px) {
+  .ggang_box h2 {
+    font-size: 32px;
+  }
+
+  .fix_motion {
+    height: 3000px;
+  }
+
+  .fix_motion .sticky_cont .cont_box .intro_txt h2 {
+    font-size: 50px;
+  }
+
+  .fix_motion .sticky_cont .cont_box .ending_txt .tb_row .tb_cell p {
+    font-size: 50px;
+  }
+  .sec01 .nav_list .list li a {
+    font-size: 7vw;
+  }
+
+  /*  */
+  .skill_list {
+    height: 120vh;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(2, 25% 25%);
+    padding-top: 80px;
+  }
+
+  .skill_icon,
+  .skill_icon2 {
+    flex-wrap: nowrap;
+    padding: 10px;
+  }
+
+  .skill_icon {
+    order: 1;
+  }
+  .skill_icon2 {
+    order: 3;
+  }
+
+  .skill_txt1 {
+    order: 2;
+  }
+  .skill_txt2 {
+    order: 4;
+  }
+
+  .skill_txt1,
+  .skill_txt2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    text-align: center;
+  }
+  .sec03 .cube_wrap {
+    perspective: 900px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 20;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+  }
+
+  .sec03 .cube_wrap .cube_box .cube_face.front {
+    transform: rotateY(0deg) translateZ(149px);
+  }
+
+  .sec03 .cube_wrap .cube_box .cube_face.back {
+    transform: rotateY(180deg) translateZ(149px);
+  }
+
+  .sec03 .cube_wrap .cube_box .cube_face.left {
+    transform: rotateY(-90deg) translateZ(149px);
+  }
+
+  .sec03 .cube_wrap .cube_box .cube_face.right {
+    transform: rotateY(90deg) translateZ(149px);
+  }
+
+  .sec03 .cube_wrap .cube_box .cube_face.top {
+    transform: rotateX(90deg) translateZ(149px);
+  }
+
+  .sec03 .cube_wrap .cube_box .cube_face.bottom {
+    transform: rotateX(-90deg) translateZ(149px);
+  }
+}
+
+@media (max-width: 800px) {
+  .section_textmask .txt_area .motion_area {
+    font-size: 100px;
+  }
+  .skill_list {
+    height: 80vh;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(2, 15% 35%);
+  }
+  .skill_txt1,
+  .skill_txt2 {
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+  }
+  #a {
+    background-image: url('./images/sec03_bg1_mb.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #b {
+    background-image: url('./images/sec03_bg2_mb.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #c {
+    background-image: url('./images/sec03_bg3_mb.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #d {
+    background-image: url('./images/sec03_bg4_mb.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sec03 .nav_list {
+    position: fixed;
+    right: 10px;
+    top: 90%;
+    z-index: 1000;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+  }
+  .sec03 .fix_tit span {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    font-size: 30px;
+    font-family: 'NotoM';
+    border-bottom: 3px solid rgba(255, 255, 255, 0);
+  }
+}
+@media (max-width: 640px) {
+  .skill_txt1,
+  .skill_txt2 {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+  .fix_box .txt {
+    font-size: 100px;
+  }
+}
+@media (max-width: 510px) {
+  .skill_txt1,
+  .skill_txt2 {
+    font-size: 0.75rem;
+    line-height: 1.4rem;
+  }
+}
+@media (max-width: 540px) {
+  .section_textmask .txt_area .motion_area {
+    font-size: 80px;
+  }
+  .fix_box .txt {
+    font-size: 80px;
+  }
+}
+@media (max-width: 440px) {
+  .section_textmask .txt_area .motion_area {
+    font-size: 60px;
+  }
+  .fix_box .txt {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 642px) {
+  .fix_motion .sticky_cont .cont_box .intro_txt h2 span {
+    display: block;
+    text-align: center;
+  }
+
+  .fix_motion .sticky_cont .cont_box .intro_txt h2.pc {
+    display: none;
+  }
+  .fix_motion .sticky_cont .cont_box .intro_txt h2.mb {
+    display: block;
+  }
+  #container01 {
+    color: #999;
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: bold;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  #flip {
+    height: 50px;
+    overflow: hidden;
+  }
+
+  #flip > div > div {
+    color: #fff;
+    padding: 4px 12px;
+    height: 45px;
+    margin-bottom: 45px;
+    display: inline-block;
+  }
+
+  #flip div:first-child {
+    animation: show 5s linear infinite;
+  }
+
+  @keyframes show {
+    0% {
+      margin-top: -270px;
+    }
+    5% {
+      margin-top: -180px;
+    }
+    33% {
+      margin-top: -180px;
+    }
+    38% {
+      margin-top: -90px;
+    }
+    66% {
+      margin-top: -90px;
+    }
+    71% {
+      margin-top: -10px;
+    }
+    99.99% {
+      margin-top: -10px;
+    }
+    100% {
+      margin-top: -270px;
+    }
+  }
+}
+
+/* 반응형 끝 */
