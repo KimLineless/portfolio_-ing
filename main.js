@@ -154,7 +154,7 @@ $(function () {
     if ((bWidth < 1024 && nWidth >= 1024) || (bWidth > 100 && nWidth <= 1000)) {
       location.reload();
     }
-    beforeWidth = nowWidth;
+    // beforeWidth = nowWidth;
   });
 
   function resize() {
@@ -386,4 +386,68 @@ $(function SecSvg() {
   };
 });
 
-// sec4
+// contact
+
+let isVisible1 = false;
+
+$(window).on('scroll', function () {
+  if (checkVisible1($('.sec05')) && !isVisible1) {
+    const $text = document.querySelector('.text');
+
+    const letters = [
+      '역량과 끈기를 갖춘',
+      '성장하지만 겸손을 잃지 않는',
+      '책임감 있고 함께 일할 때 시너지를 주는',
+    ];
+
+    const speed = 100;
+    let i = 0;
+
+    const typing = async () => {
+      const letter = letters[i].split('');
+
+      while (letter.length) {
+        await wait(speed);
+        $text.innerHTML += letter.shift();
+      }
+
+      await wait(800);
+
+      if (letters[i + 1]) remove();
+    };
+
+    const remove = async () => {
+      const letter = letters[i].split('');
+
+      while (letter.length) {
+        await wait(speed);
+
+        letter.pop();
+        $text.innerHTML = letter.join('');
+      }
+
+      i++;
+      typing();
+    };
+
+    function wait(ms) {
+      return new Promise((res) => setTimeout(res, ms));
+    }
+
+    setTimeout(typing, 800);
+
+    isVisible1 = true;
+  }
+});
+
+function checkVisible1(elm, eval) {
+  eval = eval || 'object visible';
+  let viewportHeight = $(window).height(),
+    scrolltop = $(window).scrollTop(),
+    y = $(elm).offset().top,
+    elementHeight = $(elm).height();
+
+  if (eval == 'object visible')
+    return y < viewportHeight + scrolltop && y > scrolltop - elementHeight;
+  if (eval == 'above') return y < viewportHeight + scrolltop;
+}
