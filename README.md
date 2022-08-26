@@ -5,4 +5,5 @@
 ---
 
 <p align = 'center'> 📌 인덱스 화면</p>
+
 https://user-images.githubusercontent.com/96815572/186799841-6c9105a0-89d5-42b0-b041-0594315faa47.mp4
