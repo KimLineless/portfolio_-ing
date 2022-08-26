@@ -219,7 +219,7 @@ function changeColor(index) {
   let targetText = $('.sec03 h2 a');
   let cubeBox = $('.sec03 .cube_box .cube_face');
 
-  if (index === 0 || index === 2) {
+  if (index === 0 || index === 2 || index === 3) {
     targetText.addClass('black');
   } else {
     targetText.removeClass('black');

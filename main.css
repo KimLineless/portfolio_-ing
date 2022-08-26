@@ -1,9 +1,28 @@
 @charset 'utf-8';
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+@font-face {
+  font-family: 'SUIT-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
   margin: 0;
+  font-family: SUIT-Medium;
+}
+
+body::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+
+  /* load images */
+  content: url('./images/sec03_bg1.png') url('./images/sec03_bg2.png')
+    url('./images/sec03_bg3.png') url('./images/sec03_bg4.png');
 }
 
 * {
@@ -709,7 +728,7 @@ a {
   position: relative;
   display: inline-block;
   text-decoration: none;
-  font-size: 5vw;
+  font-size: 4.5vw;
   line-height: 1.5;
   color: #fff;
   transition: transform 0.5s;
@@ -1009,7 +1028,6 @@ a {
   right: 0;
   top: -30px;
   font-size: 30px;
-  font-family: 'NotoM';
   border-bottom: 3px solid rgba(255, 255, 255, 0);
 }
 
@@ -1024,10 +1042,15 @@ a {
 
 /* 섹션03, 네비게이션 */
 .sec03 h2 a {
+  color: #f0582b;
+  transition: 0.3s;
+}
+
+.sec03 h2 a:hover {
   color: #fff;
 }
-.sec03 h2 a.black {
-  color: #000;
+.sec03 h2 a.black:hover {
+  color: #111;
 }
 
 .sec03 .section03 {
@@ -1332,7 +1355,7 @@ a {
   position: relative;
   z-index: 1;
   height: 4000px;
-  background: #fff;
+  background: #111;
 }
 .sec_svg.down {
   z-index: 220;
@@ -1350,7 +1373,7 @@ a {
   font-family: 'NotoB';
   font-size: 180px;
   line-height: 1;
-  color: #000;
+  color: #fff;
   opacity: 0.4;
 }
 
@@ -1360,7 +1383,7 @@ a {
   top: -30px;
   font-size: 30px;
   font-family: 'NotoM';
-  border-bottom: 3px solid rgba(000, 000, 000, 0.6);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.6);
 }
 
 /* svg  */
@@ -1369,14 +1392,14 @@ a {
   left: 50%;
   top: 50%;
   z-index: 30;
-  width: 100%;
+  height: 100%;
   transform: translate(-50%, -50%);
 }
 
 .svg_wrap #svg {
-  width: 100%;
+  height: 100%;
   fill: none;
-  stroke: #555;
+  stroke: #eaeaea;
   stroke-width: 4;
 }
 
@@ -1386,14 +1409,14 @@ a {
   left: 50%;
   top: 50%;
   z-index: 10;
-  width: 100%;
+  height: 100%;
   opacity: 0;
   transform: translate(-50%, -50%);
   transition: opacity 0.5s;
 }
 
 .video_wrap video {
-  width: 100%;
+  height: 100%;
 }
 
 /* sec04 */
@@ -1422,6 +1445,13 @@ a {
   height: 100vh;
   background-color: #111;
 }
+.sec05 a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
 .text_con {
   position: relative;
   left: 50%;
@@ -1429,7 +1459,7 @@ a {
   width: 100%;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 5vw;
@@ -1450,124 +1480,87 @@ a {
   text-align: center;
   color: #fff;
 }
-
 .call {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   position: relative;
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-}
-
-.call > li {
-  margin: 5%;
-}
-.kakao > div {
-  padding-top: 10%;
-  width: 80%;
-  height: 40%;
-}
-
-.kakao {
-  position: relative;
-  width: 15vw;
-  height: 30vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #eaeaea;
-  transition: 0.3s;
-}
-
-.kakao:hover {
-  background-color: #f7e600;
-}
-
-.sec05 a {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-
-.kakao p {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  bottom: 5%;
-  white-space: nowrap;
-  color: #111;
-}
-
-.kakao img {
-  width: 100%;
-}
-
-.mail {
-  position: relative;
-  width: 50vw;
-  height: 30vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #eaeaea;
-  transition: 0.3s;
-}
-
-.mail div {
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  height: 80%;
-  background-color: #fff;
-  top: 50%;
+  flex-wrap: nowrap;
+  color: #fff;
   left: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
-  transition: 0.3s;
-  font-size: 3vw;
+  width: 50%;
+  height: 50%;
 }
-
+.call > li {
+  position: relative;
+  width: 30%;
+  height: 65%;
+  margin: 2.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #eaeaea;
+  transition: background-color 0.5s;
+}
+.kakao:hover {
+  background-color: #f7e600;
+}
 .mail:hover {
   background-color: #00c73c;
 }
-.mail:hover div {
-  background-color: #eaeaea;
+.git:hover {
+  background-color: #999;
 }
 
+.call > li > div {
+  width: 80%;
+  overflow: hidden;
+}
+.call img {
+  width: 100%;
+}
+
+.call > li p {
+  width: calc(100% + 4rem);
+  text-align: center;
+  padding: 2rem 0;
+  position: relative;
+  top: 2rem;
+  font-size: 1.2rem;
+  color: #111;
+  background-color: #fff;
+  white-space: nowrap;
+}
 /* 반응형 */
 
-@media (max-width: 1280px) {
-  /* sec05 */
+@media (max-width: 1477px) {
+  .call > li {
+    height: 57%;
+  }
+}
+
+@media (max-width: 1300px) {
   .text_con {
-    top: 20%;
+    top: 23%;
   }
-
-  .sec05 h3 {
-    top: -80%;
-  }
-
   .call {
     flex-direction: column;
-    top: 30%;
-    width: 80%;
   }
-
-  .kakao {
-    width: 30vw;
-    height: 20vh;
+  .call > li {
+    width: 100%;
+    height: 30%;
+    flex-direction: row;
   }
-  .mail {
-    width: 80vw;
-    height: 20vh;
+  .call > li > div {
+    width: 30%;
+  }
+  .call > li p {
+    top: 0;
+    left: 0.8rem;
   }
 }
 
@@ -1706,6 +1699,18 @@ a {
   .sec04 {
     height: 100vh;
   }
+  .call > li > div {
+    width: 40%;
+  }
+
+  /* svg  */
+  .svg_wrap {
+    left: 60%;
+  }
+  /* video */
+  .video_wrap {
+    left: 60%;
+  }
 }
 @media (max-width: 640px) {
   .skill_txt1,
@@ -1716,7 +1721,24 @@ a {
   .fix_box .txt {
     font-size: 100px;
   }
+  .text_con {
+    top: 20%;
+  }
+  .call > li {
+    width: 70%;
+    height: 40%;
+    justify-content: center;
+    align-items: center;
+  }
+  .call > li > div {
+    width: 100%;
+  }
+
+  .call > li p {
+    display: none;
+  }
 }
+
 @media (max-width: 510px) {
   .skill_txt1,
   .skill_txt2 {
