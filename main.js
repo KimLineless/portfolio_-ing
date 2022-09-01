@@ -400,7 +400,7 @@ $(window).on('scroll', function () {
       '책임감 있고 함께 일할 때 시너지를 주는',
     ];
 
-    const speed = 100;
+    const speed = 50;
     let i = 0;
 
     const typing = async () => {
