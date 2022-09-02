@@ -33,6 +33,67 @@ body::after {
   box-sizing: border-box;
 }
 
+/* 스크롤 다운 */
+.con_body {
+  position: fixed;
+  z-index: 1000000000;
+  left: 135px;
+  top: 80%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.chevron {
+  position: absolute;
+  width: 28px;
+  height: 8px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #eaeaea;
+}
+.chevron.in:before,
+.chevron.in:after {
+  background: #111;
+}
+
+.text.in {
+  color: #111;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
 .sections {
   position: relative;
   z-index: 11;
@@ -623,7 +684,7 @@ a {
   top: 5px;
   width: 16px;
   height: 16px;
-  background-image: url('../images/icon_p.png');
+  background-image: url('./images/icon_p.png');
   background-size: cover;
   background-position: 0px 0px;
   transition: transform 0.5s;
