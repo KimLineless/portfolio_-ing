@@ -228,17 +228,14 @@ function changeColor(index) {
   if (index === 0) {
     targetText.attr(
       'href',
-      'https://github.com/KimLineless/Gentlemonster_renewal/'
+      'https://kimlineless.github.io/Gentlemonster_renewal/'
     );
   } else if (index === 1) {
-    targetText.attr('href', 'https://github.com/KimLineless/Jenesis_renewal/');
+    targetText.attr('href', 'https://kimlineless.github.io/Jenesis_renewal/');
   } else if (index === 2) {
-    targetText.attr('href', 'https://github.com/KimLineless/Garts_renewal/');
+    targetText.attr('href', 'https://kimlineless.github.io/Garts_renewal/');
   } else if (index === 3) {
-    targetText.attr(
-      'href',
-      'https://github.com/KimLineless/baeksansu_renewal/'
-    );
+    targetText.attr('href', 'https://kimlineless.github.io/baeksansu_renewal/');
   }
 }
 
@@ -392,7 +389,7 @@ let isVisible1 = false;
 
 $(window).on('scroll', function () {
   if (checkVisible1($('.sec05')) && !isVisible1) {
-    const $text = document.querySelector('.text');
+    const $text = document.querySelector('.text1');
 
     const letters = [
       '역량과 끈기를 갖춘',
@@ -451,3 +448,21 @@ function checkVisible1(elm, eval) {
     return y < viewportHeight + scrolltop && y > scrolltop - elementHeight;
   if (eval == 'above') return y < viewportHeight + scrolltop;
 }
+
+// 새로고침 방지
+let cachedWidth = $(window).width();
+$(window).resize(function () {
+  let newWidth = $(window).width();
+  if (newWidth !== cachedWidth) {
+    let delay = 300;
+    let re_timer = null;
+    $(window).on('resize', function () {
+      clearTimeout(re_timer);
+      re_timer = setTimeout(function () {
+        document.location.reload();
+      }, delay);
+    });
+    //===================
+    cachedWidth = newWidth;
+  }
+});
