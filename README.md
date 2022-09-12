@@ -4,6 +4,6 @@
 
 ---
 
-<p align = 'center'> 📌 메인페이지 화면</p>
+<p align = 'center'> 📌 메인인덱스 화면</p>
 
 https://user-images.githubusercontent.com/96815572/186800304-98b6e38e-49e5-4c13-9090-f40b76dcd78b.mp4
